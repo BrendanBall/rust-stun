@@ -1,0 +1,6 @@
+[package]
+name = "rust-stun"
+version = "0.1.0"
+authors = ["Brendan Ball <ball.brendan50@gmail.com>"]
+
+[dependencies]

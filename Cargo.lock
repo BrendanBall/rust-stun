@@ -1,0 +1,4 @@
+[root]
+name = "rust-stun"
+version = "0.1.0"
+
