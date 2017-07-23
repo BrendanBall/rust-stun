@@ -1,11 +1,10 @@
-use tokio_proto::pipeline::ServerProto;
-
-pub struct LineProto;
-
 use std::io;
 use tokio_io::{AsyncRead, AsyncWrite};
 use tokio_io::codec::Framed;
+use tokio_proto::pipeline::ServerProto;
 use server::codec::LineCodec;
+
+pub struct LineProto;
 
 impl<T: AsyncRead + AsyncWrite + 'static> ServerProto<T> for LineProto {
     /// For this protocol style, `Request` matches the `Item` type of the codec's `Encoder`

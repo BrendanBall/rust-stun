@@ -1,5 +1,5 @@
 [package]
-name = "rust-stun"
+name = "rusty-mirror"
 version = "0.1.0"
 authors = ["Brendan Ball <ball.brendan50@gmail.com>"]
 
