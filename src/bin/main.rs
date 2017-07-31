@@ -1,5 +1,5 @@
 extern crate tokio_proto;
-extern crate rust_stun as stun;
+extern crate rusty_mirror as stun;
 
 use stun::server::Server;
 use stun::server::StunServer;
