@@ -1,23 +1,19 @@
 use std::io;
 use tokio_service::Service;
-use futures::{future, Future, BoxFuture};
+use futures::{future, Future};
+use server::{MessageRequest, MessageResponse};
 
-pub struct Echo;
+pub struct Stun;
 
-impl Service for Echo {
-    // These types must match the corresponding protocol types:
-    type Request = String;
-    type Response = String;
-
-    // For non-streaming protocols, service errors are always io::Error
+impl Service for Stun {
+    type Request = MessageRequest;
+    type Response = MessageResponse;
     type Error = io::Error;
+    type Future = Box<Future<Item = Self::Response, Error = Self::Error>>;
 
-    // The future for computing the response; box it for simplicity.
-    type Future = BoxFuture<Self::Response, Self::Error>;
-
-    // Produce a future for computing a response from a request.
     fn call(&self, req: Self::Request) -> Self::Future {
         // In this case, the response is immediate.
-        future::ok(req).boxed()
+        let res = MessageResponse {header: req.header};
+        Box::new(future::ok(res))
     }
 }
